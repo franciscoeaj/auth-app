@@ -29,7 +29,7 @@ class UserController extends Controller
             if (is_object($user)) {
                 $r->setContent(json_encode(['id' => $user->getId(), 'name' => $user->getName(), 'email' => $user->getEmail()])); 
             } else {
-                $r->setContent('This user does not exist');
+                $r->setContent('Couldn\'t find a user with these credentials!');
                 $r->setStatusCode(400);
             }
         } else {
