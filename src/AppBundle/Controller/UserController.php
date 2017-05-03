@@ -30,9 +30,11 @@ class UserController extends Controller
                 $r->setContent(json_encode(['id' => $user->getId(), 'name' => $user->getName(), 'email' => $user->getEmail()])); 
             } else {
                 $r->setContent('This user does not exist');
+                $r->setStatusCode(400);
             }
         } else {
             $r->setContent('Method not allowed');
+            $r->setStatusCode(400);
         }      
 
         return $r;
