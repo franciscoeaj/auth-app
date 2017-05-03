@@ -22,8 +22,6 @@ class UserController extends Controller
             $json = json_decode($content, true);
             $email = $json['email'];
             $password = $json['password'];
-            // $email = $request->request->get('email');
-            // $password = $request->request->get('password');
 
             $userRepository = $this->getDoctrine()->getRepository('AppBundle:User');
             $user = $userRepository->findOneBy(['email' => $email, 'password' => $password]);
